@@ -4,5 +4,6 @@
 void invert();
 void invert_half();
 void box();
+void frame();
 
 #endif
