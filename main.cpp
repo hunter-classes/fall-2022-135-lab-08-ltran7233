@@ -6,5 +6,6 @@ int main()
 {
 	invert();
 	invert_half();
+	box();
 	return 0;
 }

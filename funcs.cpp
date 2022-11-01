@@ -48,3 +48,34 @@ void invert_half()
 	
 	writeImage("taskB.pgm",out, h, w);
 }
+
+void box()
+{
+	std::string input = "inImage.pgm";
+	int img[MAX_H][MAX_W];
+	int h, w;
+	readImage(input, img, h, w);
+	
+	int out[MAX_H][MAX_W];
+	
+	int start_h = h/4;
+	int end_h = (h*3)/4;
+	int start_w = w/4;
+	int end_w = (w*3)/4;
+	for(int row = 0; row < h; row++)
+	{
+		for(int col = 0; col < w; col++)
+		{
+			if (((row >= start_h) && (row <= end_h)) && ((col >= start_w) && (col <= end_w)))
+			{
+				out[row][col] = 255;
+			}
+			else
+			{
+				out[row][col] = img[row][col];
+			}
+		}
+	}
+	
+	writeImage("taskC.pgm",out, h, w);
+}

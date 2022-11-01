@@ -3,5 +3,6 @@
 
 void invert();
 void invert_half();
+void box();
 
 #endif
