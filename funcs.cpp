@@ -110,3 +110,26 @@ void frame()
 	
 	writeImage("taskD.pgm",out, h, w);
 }
+
+void scale()
+{
+	std::string input = "inImage.pgm";
+	int img[MAX_H][MAX_W];
+	int h, w;
+	readImage(input, img, h, w);
+	
+	int out[MAX_H][MAX_W];
+	
+	for(int row = 0; row < h; row++)
+	{
+		for(int col = 0; col < w; col++)
+		{
+			out[row*2][col*2] = img[row][col];
+			out[row*2][col*2+1] = img[row][col];
+			out[row*2+1][col*2] = img[row][col];
+			out[row*2+1][col*2+1] = img[row][col];
+		}
+	}
+	
+	writeImage("taskE.pgm",out, h*2, w*2);
+}

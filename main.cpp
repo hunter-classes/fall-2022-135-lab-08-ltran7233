@@ -8,5 +8,6 @@ int main()
 	invert_half();
 	box();
 	frame();
+	scale();
 	return 0;
 }
