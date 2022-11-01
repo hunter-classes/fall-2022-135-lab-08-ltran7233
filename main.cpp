@@ -9,5 +9,6 @@ int main()
 	box();
 	frame();
 	scale();
+	pixelate();
 	return 0;
 }

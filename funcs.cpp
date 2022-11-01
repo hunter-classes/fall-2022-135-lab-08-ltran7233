@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 #include "imageio.h"
 #include "funcs.h"
 
@@ -132,4 +133,35 @@ void scale()
 	}
 	
 	writeImage("taskE.pgm",out, h*2, w*2);
+}
+
+void pixelate()
+{
+	std::string input = "inImage.pgm";
+	int img[MAX_H][MAX_W];
+	int h, w;
+	readImage(input, img, h, w);
+	
+	int out[MAX_H][MAX_W];
+	
+	for(int row = 0; row < h; row++)
+	{
+		for(int col = 0; col < w; col++)
+		{
+			double avg = 0.0;
+			
+			avg += img[row*2][col*2];
+			avg += img[row*2][col*2+1];
+			avg += img[row*2+1][col*2];
+			avg += img[row*2+1][col*2+1];
+			avg = (avg/4.0);
+			
+			out[row*2][col*2] = round(avg);
+			out[row*2][col*2+1] = round(avg);
+			out[row*2+1][col*2] = round(avg);
+			out[row*2+1][col*2+1] = round(avg);
+		}
+	}
+	
+	writeImage("taskF.pgm",out, h, w);
 }
